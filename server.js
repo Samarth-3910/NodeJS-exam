@@ -54,6 +54,9 @@ const server = http.createServer((req, res) => {
     else if(req.method === 'GET' && req.url === '/serverInfo'){
         const serverInfo = {
             platform: os.platform(),
+            cpuArch: os.arch(),
+            totalMemory: os.totalmem(),
+            freeMemory: os.freemem(),
             uptime: os.uptime()
         };
         res.writeHead(200, { 'Content-Type': 'application/json' });
